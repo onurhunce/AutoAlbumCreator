@@ -1,6 +1,5 @@
 # AutoAlbumCreator
-Album Creator is a smart Django application to create automated photo albums.
-AlbumCreator is a smart Django application to create automated photo albums. The app runs every 20 minutes and fetch the last photos posted on twitter (under the hashtag #carnival ) since the last fetching and creates a photo album. 
+AlbumCreator is a smart Django application to create automated photo albums. The app runs every 20 minutes and fetch the last photos posted on twitter (under the hashtag #carnival ) since the last fetching and creates a photo album. It is also possible to fetch photos manually from the browser.  
 
 Quick start
 -----------
