@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Photos</title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'AlbumCreator/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'AlbumCreator/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'AlbumCreator/thumbnail-gallery.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'AlbumCreator/bootstrap.min.js' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'AlbumCreator/bootstrap.js' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'AlbumCreator/jquery.js' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'AlbumCreator/style.css' %}" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                        data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../">Photo Album Creator</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/popular">Popular Photos</a>
+                    </li>
+                    <li>
+                        <a href="/api">Api</a>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary"
+                                style="margin-top: 10px; margin-left: 20px">
+                              <a href="/export" style="color:white">
+                                  Export Album to Facebook
+                              </a>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Popular Photos</h1>
+            </div>
+
+                {% for photo in popular_photos %}
+            <div class="col-lg-4 ">
+                    <p> {{forloop.counter}} : <b> {{photo.owner}}</b>  </p>
+                    <p> Retweet Number: <b> {{photo.like_total}} </b>  </p>
+
+                   <img src='{{photo}}' height="250" width="250"/>
+            </div>
+                {%endfor%}
+
+        </div>
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Onur Hunce 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
